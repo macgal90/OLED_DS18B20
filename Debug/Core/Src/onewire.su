@@ -1,0 +1,10 @@
+../Core/Src/onewire.c:3:20:line_low	8	static
+../Core/Src/onewire.c:6:20:line_release	8	static
+../Core/Src/onewire.c:9:23:line_read	8	static
+../Core/Src/onewire.c:13:6:DWT_Delay_Init	4	static
+../Core/Src/onewire.c:17:6:DWT_Delay_us	24	static,ignoring_inline_asm
+../Core/Src/onewire.c:23:6:ONEWIRE_Reset	16	static,ignoring_inline_asm
+../Core/Src/onewire.c:34:6:ONEWIRE_WriteBit	16	static,ignoring_inline_asm
+../Core/Src/onewire.c:42:9:ONEWIRE_ReadBit	16	static,ignoring_inline_asm
+../Core/Src/onewire.c:53:6:ONEWIRE_WriteByte	24	static
+../Core/Src/onewire.c:56:9:ONEWIRE_ReadByte	16	static

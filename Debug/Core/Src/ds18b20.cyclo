@@ -1,0 +1,6 @@
+../Core/Src/ds18b20.c:8:16:ds_crc8	4
+../Core/Src/ds18b20.c:22:6:DS18B20_IsPresent	1
+../Core/Src/ds18b20.c:24:6:DS18B20_StartConversion	2
+../Core/Src/ds18b20.c:31:6:DS18B20_WaitForConversion	3
+../Core/Src/ds18b20.c:39:6:DS18B20_ReadScratchpad	3
+../Core/Src/ds18b20.c:47:6:DS18B20_ReadTemperature	4
