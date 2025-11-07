@@ -6,8 +6,8 @@
 ../Core/Src/oled/ssd1306.c:175:6:ssd1306_Fill	2
 ../Core/Src/oled/ssd1306.c:180:6:ssd1306_UpdateScreen	2
 ../Core/Src/oled/ssd1306.c:201:6:ssd1306_DrawPixel	4
-../Core/Src/oled/ssd1306.c:221:6:ssd1306_WriteChar	9
-../Core/Src/oled/ssd1306.c:258:6:ssd1306_WriteString	3
+../Core/Src/oled/ssd1306.c:221:6:ssd1306_WriteChar	10
+../Core/Src/oled/ssd1306.c:258:6:ssd1306_WriteString	4
 ../Core/Src/oled/ssd1306.c:272:6:ssd1306_SetCursor	1
 ../Core/Src/oled/ssd1306.c:278:6:ssd1306_Line	7
 ../Core/Src/oled/ssd1306.c:305:6:ssd1306_Polyline	3

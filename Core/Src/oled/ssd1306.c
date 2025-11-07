@@ -219,52 +219,52 @@ void ssd1306_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color) {
  * color    => Black or White
  */
 char ssd1306_WriteChar(char ch, SSD1306_Font_t Font, SSD1306_COLOR color) {
-    uint32_t i, b, j;
-    
-    // Check if character is valid
     if (ch < 32 || ch > 126)
         return 0;
-    
-    // Char width is not equal to font width for proportional font
-    const uint8_t char_width = Font.char_width ? Font.char_width[ch-32] : Font.width;
-    // Check remaining space on current line
-    if (SSD1306_WIDTH < (SSD1306.CurrentX + char_width) ||
-        SSD1306_HEIGHT < (SSD1306.CurrentY + Font.height))
-    {
-        // Not enough space on current line
+
+    uint8_t char_width = Font.width;
+    uint8_t char_height = Font.height;
+
+    // Sprawdź, czy znak zmieści się na ekranie
+    if (SSD1306.CurrentX + char_width >= SSD1306_WIDTH ||
+        SSD1306.CurrentY + char_height >= SSD1306_HEIGHT) {
+        // Jeśli brak miejsca – nie rysujemy
         return 0;
     }
-    
-    // Use the font to write
-    for(i = 0; i < Font.height; i++) {
-        b = Font.data[(ch - 32) * Font.height + i];
-        for(j = 0; j < char_width; j++) {
-            if((b << j) & 0x8000)  {
-                ssd1306_DrawPixel(SSD1306.CurrentX + j, (SSD1306.CurrentY + i), (SSD1306_COLOR) color);
-            } else {
-                ssd1306_DrawPixel(SSD1306.CurrentX + j, (SSD1306.CurrentY + i), (SSD1306_COLOR)!color);
-            }
+
+    // Rysowanie znaku
+    for (uint32_t i = 0; i < char_height; i++) {
+        uint16_t line = Font.data[(ch - 32) * char_height + i];
+        for (uint32_t j = 0; j < char_width; j++) {
+            uint8_t x = SSD1306.CurrentX + j;
+            uint8_t y = SSD1306.CurrentY + i;
+
+            if (x >= SSD1306_WIDTH || y >= SSD1306_HEIGHT)
+                continue;
+
+            if ((line << j) & 0x8000)
+                ssd1306_DrawPixel(x, y, color);
+            else
+                ssd1306_DrawPixel(x, y, Black); // zamiast !color
         }
     }
-    
-    // The current space is now taken
+
     SSD1306.CurrentX += char_width;
-    
-    // Return written char for validation
     return ch;
 }
+
 
 /* Write full string to screenbuffer */
 char ssd1306_WriteString(char* str, SSD1306_Font_t Font, SSD1306_COLOR color) {
     while (*str) {
-        if (ssd1306_WriteChar(*str, Font, color) != *str) {
-            // Char could not be written
-            return *str;
-        }
+        if (SSD1306.CurrentX + Font.width >= SSD1306_WIDTH)
+            break; // koniec linii — nie piszemy dalej
+
+        if (ssd1306_WriteChar(*str, Font, color) != *str)
+            break;
+
         str++;
     }
-    
-    // Everything ok
     return *str;
 }
 
