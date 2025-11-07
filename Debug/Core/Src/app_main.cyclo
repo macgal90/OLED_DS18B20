@@ -1,4 +1,4 @@
-../Core/Src/app_main.c:32:20:scene_name	5
-../Core/Src/app_main.c:42:13:draw_screen	6
-../Core/Src/app_main.c:121:6:App_Main	6
-../Core/Src/app_main.c:159:6:HAL_GPIO_EXTI_Callback	3
+../Core/Src/app_main.c:52:13:relay_apply	1
+../Core/Src/app_main.c:63:13:draw_screen	7
+../Core/Src/app_main.c:149:6:App_Main	22
+../Core/Src/app_main.c:233:6:HAL_GPIO_EXTI_Callback	3
