@@ -1,4 +1,5 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+Core/Src/app_main.o: ../Core/Src/app_main.c ../Core/Inc/app_main.h \
+ ../Core/Inc/oled/ssd1306.h ../Core/Inc/oled/ssd1306_conf.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
  ../Core/Inc/stm32f3xx_hal_conf.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \
@@ -27,11 +28,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
- ../Core/Inc/onewire.h ../Core/Inc/main.h ../Core/Inc/ds18b20.h \
- ../Core/Inc/oled/ssd1306.h ../Core/Inc/oled/ssd1306_conf.h \
  ../Core/Inc/oled/ssd1306_fonts.h ../Core/Inc/oled/ssd1306.h \
- ../Core/Inc/oled/ssd1306_conf.h ../Core/Inc/app_main.h
-../Core/Inc/main.h:
+ ../Core/Inc/ds18b20.h ../Core/Inc/main.h
+../Core/Inc/app_main.h:
+../Core/Inc/oled/ssd1306.h:
+../Core/Inc/oled/ssd1306_conf.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:
@@ -60,12 +61,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
-../Core/Inc/onewire.h:
-../Core/Inc/main.h:
-../Core/Inc/ds18b20.h:
-../Core/Inc/oled/ssd1306.h:
-../Core/Inc/oled/ssd1306_conf.h:
 ../Core/Inc/oled/ssd1306_fonts.h:
 ../Core/Inc/oled/ssd1306.h:
-../Core/Inc/oled/ssd1306_conf.h:
-../Core/Inc/app_main.h:
+../Core/Inc/ds18b20.h:
+../Core/Inc/main.h:

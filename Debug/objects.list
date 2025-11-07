@@ -1,3 +1,4 @@
+"./Core/Src/app_main.o"
 "./Core/Src/ds18b20.o"
 "./Core/Src/main.o"
 "./Core/Src/my_clock.o"

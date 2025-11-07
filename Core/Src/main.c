@@ -24,6 +24,7 @@
 #include "oled/ssd1306.h"
 #include "oled/ssd1306_fonts.h"
 #include "oled/ssd1306_conf.h"
+#include "app_main.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -120,34 +121,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-      float t;
-      char tempStr[10];
-
-      if (DS18B20_ReadTemperature(&t)) {
-          printf("Temperatura = %.2f C\r\n", t);
-
-          // Wyświetl tylko wartość temperatury
-          ssd1306_Fill(Black);
-          sprintf(tempStr, "%.2f°C", t);
-          ssd1306_SetCursor(20, 10);  // dobra wysokość dla OLED 128x32
-          ssd1306_WriteString(tempStr, Font_16x26, White);
-          ssd1306_UpdateScreen();
-      }
-      else {
-          ssd1306_Fill(Black);
-          ssd1306_SetCursor(10, 10);
-          ssd1306_WriteString("Blad", Font_11x18, White);
-          ssd1306_UpdateScreen();
-      }
-
-      HAL_Delay(1000);
+    /* USER CODE END WHILE */
+	  App_Main();
+    /* USER CODE BEGIN 3 */
   }
-
-
-
-
-
-
   /* USER CODE END 3 */
 }
 
@@ -297,6 +274,12 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(ONEWIRE_GPIO_Port, ONEWIRE_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : ONEWIRE_Pin */
   GPIO_InitStruct.Pin = ONEWIRE_Pin;
