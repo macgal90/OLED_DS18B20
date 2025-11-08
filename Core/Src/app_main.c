@@ -56,7 +56,8 @@ static void relay_apply(void) {
 #else
   level = g_relay_state ? GPIO_PIN_SET : GPIO_PIN_RESET;
 #endif
-  HAL_GPIO_WritePin(RELAY_Port, RELAY_Pin, level);
+  HAL_GPIO_WritePin(RELAY_Port, RELAY_Pin, level);                 // LED na płytce / przekaźnik
+  HAL_GPIO_WritePin(LED_COOL_GPIO_Port, LED_COOL_Pin, level);      //zewnętrzny LED (PC4)
 }
 
 // ====== Rysowanie ekranu ======
@@ -83,7 +84,7 @@ static void draw_screen(void) {
       if (g_relay_state) {
         ssd1306_WriteString("COOLING", Font_7x10, White);
       } else {
-        snprintf(line, sizeof(line), "SP:%4.1f H:%3.1f", g_setpoint, g_hyst);
+        snprintf(line, sizeof(line), "ST:%4.1f H:%3.1f", g_setpoint, g_hyst);
         ssd1306_WriteString(line, Font_7x10, White);
       }
     } break;
@@ -91,7 +92,7 @@ static void draw_screen(void) {
     // ===== SCENA 1: ZADANA =====
     case SC_SETPOINT: {
       ssd1306_SetCursor(XOF, 0);
-      ssd1306_WriteString("Zadana", Font_7x10, White);
+      ssd1306_WriteString("SET TEMP", Font_7x10, White);
       snprintf(line, sizeof(line), "%4.1f C", g_setpoint);
       ssd1306_SetCursor(XOF, 12);
       ssd1306_WriteString(line, Font_11x18, White);
@@ -100,7 +101,7 @@ static void draw_screen(void) {
     // ===== SCENA 2: HISTER. =====
     case SC_HYST: {
       ssd1306_SetCursor(XOF, 0);
-      ssd1306_WriteString("Histereza", Font_7x10, White);
+      ssd1306_WriteString("HYSTERESIS", Font_7x10, White);
       snprintf(line, sizeof(line), "%3.1f C", g_hyst);
       ssd1306_SetCursor(XOF, 12);
       ssd1306_WriteString(line, Font_11x18, White);

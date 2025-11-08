@@ -1,4 +1,4 @@
 ../Core/Src/app_main.c:52:13:relay_apply	16	static
-../Core/Src/app_main.c:63:13:draw_screen	40	static
-../Core/Src/app_main.c:149:6:App_Main	40	static
-../Core/Src/app_main.c:233:6:HAL_GPIO_EXTI_Callback	24	static
+../Core/Src/app_main.c:64:13:draw_screen	40	static
+../Core/Src/app_main.c:150:6:App_Main	40	static
+../Core/Src/app_main.c:234:6:HAL_GPIO_EXTI_Callback	24	static

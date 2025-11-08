@@ -62,6 +62,8 @@ void Error_Handler(void);
 #define B1_EXTI_IRQn EXTI15_10_IRQn
 #define ONEWIRE_Pin GPIO_PIN_3
 #define ONEWIRE_GPIO_Port GPIOC
+#define LED_COOL_Pin GPIO_PIN_4
+#define LED_COOL_GPIO_Port GPIOC
 #define I2C1_SCL_Pin GPIO_PIN_15
 #define I2C1_SCL_GPIO_Port GPIOA
 #define I2C1_SDA_Pin GPIO_PIN_7
